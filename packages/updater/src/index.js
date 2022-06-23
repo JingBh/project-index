@@ -1,13 +1,28 @@
-const { existsSync, readFileSync } = require('fs')
+const {
+  existsSync,
+  readFileSync,
+  writeFileSync,
+  mkdirSync
+} = require('fs')
 const { join, dirname } = require('path')
 
 const { App } = require('octokit')
 const { parse: parseYaml } = require('yaml')
+const rimraf = require('rimraf')
 
 const config = require('./config')
 const logger = require('./logger')
 
-logger.start('Updater started');
+logger.start('Updater started')
+
+const outputDir = join(dirname(__dirname), 'output')
+rimraf(outputDir, (err) => {
+  if (!err) {
+    logger.debug('Output directory cleared')
+  }
+
+  mkdirSync(outputDir)
+});
 
 // main
 (async function () {
@@ -207,7 +222,12 @@ logger.start('Updater started');
 })().then((result) => {
   logger.success('Updater finished')
 
-  process.stdout.write(JSON.stringify(result, null, 2))
+  logger.info('Writing results')
+  writeFileSync(
+    join(outputDir, 'index.json'),
+    JSON.stringify(result, null, 2),
+    'utf8'
+  )
 }).catch(e => {
   logger.fatal(e)
 })
