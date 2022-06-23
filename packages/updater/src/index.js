@@ -191,8 +191,10 @@ logger.start('Updater started');
         } catch (e) {}
 
         if (hasManifest) {
-          if (repo.fork && repoInfo.url === repo.clone_url) {
-            repoInfo.meta.isVariant = true
+          if (repo.fork) {
+            repoInfo.meta.isVariant = repoInfo.url === repo.clone_url
+          } else {
+            repoInfo.meta.isVariant = !!repoInfo.isBasedOn
           }
         }
 
