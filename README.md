@@ -1,3 +1,3 @@
 # JingBh's Project Index
 
-WIP
+Personal GitHub project index generator

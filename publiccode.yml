@@ -1,0 +1,25 @@
+publiccodeYmlVersion: 0.3.0
+name: Project Index
+url: https://github.com/JingBh/project-index.git
+landingURL: https://projects.jingbh.top/repos/JingBh/project-index
+platforms:
+  - web
+developmentStatus: development
+softwareType: standalone/web
+description:
+  en:
+    shortDescription: Personal GitHub project index generator
+  zh:
+    shortDescription: GitHub 个人项目索引生成器
+legal:
+  license: GPL-3.0-or-later
+  mainCopyrightOwner: JingBh
+maintenance:
+  type: internal
+  contacts:
+    - name: JingBh
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+    - zh-CN
