@@ -9,7 +9,7 @@ softwareType: standalone/web
 description:
   en:
     shortDescription: Personal GitHub project index generator
-  zh:
+  zh-CN:
     shortDescription: GitHub 个人项目索引生成器
 legal:
   license: GPL-3.0-or-later
